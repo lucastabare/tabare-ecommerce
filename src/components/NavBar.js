@@ -1,6 +1,7 @@
 import React from "react";
 import Logo from "../assets/img/gaming-logo-cover.jpg";
 import "../assets/css/NavBar.css";
+import CartWidget from "./CartWidget";
 
 function NavBar() {
   return (
@@ -42,6 +43,7 @@ function NavBar() {
                 </a>
               </li>
             </ul>
+            <CartWidget />
             <form className="d-flex">
               <input
                 className="form-control me-2"
