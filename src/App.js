@@ -8,7 +8,6 @@ function App() {
     <div className="App">
       <NavBar />
       <ItemListContainer gretting="hola mundo ItemListContainer!!!" />
-      {/* <ItemCount stock={20} initial={0} /> */}
     </div>
   );
 }

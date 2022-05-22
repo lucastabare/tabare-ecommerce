@@ -1,25 +1,36 @@
-import React, { useState } from "react";
-import { Button, Box } from "@material-ui/core";
+import { useState, useEffect } from "react";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/styles";
+import Box from "@material-ui/core/Box";
 
-const ItemCount = (stock, initial) => {
-  const [contador, setContador] = useState(0);
+const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
+  const classes = useStyle();
+  const [contador, setContador] = useState();
+
+  useEffect(() => {
+    setContador(initial);
+  }, []);
 
   const aumentar = () => {
-    if (contador >= 1 || contador < stock) {
+    if (contador < stock) {
       setContador(contador + 1);
     }
   };
 
   const disminuir = () => {
-    setContador(contador - 1);
+    if (contador > 1) {
+      setContador(contador - 1);
+    } else {
+      alert("Error, no se puede sumar numero negativos");
+    }
   };
 
   return (
-    <div>
+    <div className={classes.root}>
       <div>
-        <h1>Contados: {contador}</h1>
+        <h1>{contador}</h1>
       </div>
-      <Box>
+      <Box className={classes.boxButton}>
         <Button
           className="button"
           size="large"
@@ -37,9 +48,27 @@ const ItemCount = (stock, initial) => {
         >
           +
         </Button>
+        <Button variant="contained" color="error">
+          Agregar Item
+        </Button>
       </Box>
     </div>
   );
 };
 
+//Estilos
+const useStyle = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "relative",
+  },
+  boxButton: {
+    display: "flex",
+    justifyContent: "center",
+    position: "absolute",
+    top: "100px",
+  },
+}));
 export default ItemCount;
