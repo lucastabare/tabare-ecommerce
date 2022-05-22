@@ -1,6 +1,5 @@
-import { Badge } from "@mui/material";
-import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
-//import { withStyles } from "@mui/material/styles";
+import { Badge, makeStyles } from "@material-ui/core";
+import ShoppingCartOutlined from "@material-ui/icons/ShoppingCartOutlined";
 
 const CartWidget = () => {
   const classes = useStyles();
@@ -13,15 +12,15 @@ const CartWidget = () => {
   );
 };
 
-//Estilos
-// const useStyles = withStyles((theme) => ({
-//   root: {
-//     margin: theme.spacing(3),
-//     padding: theme.spacing(3),
-//   },
-//   icon: {
-//     margin: theme.spacing(3),
-//     padding: theme.spacing(3),
-//   },
-// }));
+//Estilos;
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: theme.spacing(3),
+    padding: theme.spacing(3),
+  },
+  icon: {
+    margin: theme.spacing(1),
+    padding: theme.spacing(1),
+  },
+}));
 export default CartWidget;
