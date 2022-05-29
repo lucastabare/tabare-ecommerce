@@ -18,7 +18,7 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
     <>
       <Card sx={{ maxWidth: 350 }} className={classes.root}>
         <CardMedia
-          height="140"
+          height="160px"
           component="img"
           image={pictureUrl}
           alt={title}
@@ -62,8 +62,8 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px",
   },
   img: {
+    // height: "fit-content",
     maxHeight: "100%",
-    maxWidth: "100%",
   },
   cardAtion: {
     alignItems: "center",

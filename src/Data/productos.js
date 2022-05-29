@@ -31,11 +31,13 @@ const products = [
   },
   {
     id: 4,
-    name: "",
+    name: "Fanta Naranja",
     stock: 50,
-    description: "lorem ipsum dolor sit amet",
-    image: [],
-    price: 5000,
+    description: "Fanta Naranja 1.75L",
+    image: [
+      "https://jumboargentina.vtexassets.com/arquivos/ids/666408/Gaseosa-Fanta-Naranja-1-75-Lt-1-766720.jpg?v=637674142012600000",
+    ],
+    price: 250,
   },
   {
     id: 5,

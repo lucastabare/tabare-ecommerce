@@ -2,15 +2,18 @@ import React from "react";
 import Logo from "../assets/img/gaming-logo-cover.jpg";
 import "../assets/css/NavBar.css";
 import CartWidget from "./CartWidget";
+import { makeStyles } from "@material-ui/core/styles";
 
 function NavBar() {
+  const classes = useStyle();
+
   return (
-    <div className="nav-bar">
-      <nav className="navbar navbar-expand-lg navbar-light ">
+    <div className={classes.navigatorBar}>
+      <nav className="navbar navbar-expand-lg navbar-light  ">
         <div className="">
           <a className="navbar-brand" href="#">
             <img
-              className="img-logo"
+              className={classes.logo}
               src={Logo}
               alt=""
               width="130"
@@ -61,5 +64,22 @@ function NavBar() {
     </div>
   );
 }
+
+//Estilos
+
+const useStyle = makeStyles((theme) => ({
+  navigatorBar: {
+    backgroundColor: "#292966",
+    border: "solid white 2px",
+    borderRadius: "5px",
+    fontFamily: "Catamaran, sans-serif",
+    fontSize: "25px",
+    color: "#fafafa !important",
+  },
+  logo: {
+    padding: "10px",
+    borderRadius: "50%",
+  },
+}));
 
 export default NavBar;
