@@ -1,8 +1,10 @@
 import Item from "./Item";
+import { makeStyles } from "@material-ui/core/styles";
 
 const ItemList = ({ items }) => {
+  const classes = useStyle();
   return (
-    <div>
+    <div className={classes.root}>
       {items.length > 0 ? (
         items.map((item) => (
           <Item
@@ -26,4 +28,11 @@ const ItemList = ({ items }) => {
   );
 };
 
+const useStyle = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexWrap: "wrap",
+    width: "100%",
+  },
+}));
 export default ItemList;

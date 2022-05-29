@@ -24,7 +24,7 @@ const ItemListContainer = ({ gretting }) => {
     <>
       <h2>{gretting}</h2>
 
-      <div className={classes.container}>
+      <div className={classes.root}>
         <ItemList items={info} />
       </div>
     </>
@@ -35,11 +35,7 @@ export default ItemListContainer;
 //Estilos:
 
 const useStyle = makeStyles((theme) => ({
-  container: {
-    display: "grid",
-    gridTemplateColumns: "1fr 1fr 1fr",
-    gridAutoRows: "1fr 1fr 1fr",
-    gap: "0px 0px",
-    gridTemplateAreas: "...",
+  root: {
+    display: "flex",
   },
 }));

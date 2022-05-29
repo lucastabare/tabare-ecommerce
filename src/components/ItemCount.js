@@ -68,10 +68,12 @@ const useStyle = makeStyles((theme) => ({
   },
   count: {
     backgroundColor: "#000",
-    borderRadius: "50%",
+    borderRadius: "20%",
+    border: "1px solid red",
+    fontSize: "20px",
     color: "#fff",
-    width: "30px",
-    height: "30px",
+    width: "40px",
+    height: "40px",
     textAlign: "center",
     alignContent: "center",
     alignItems: "center",
@@ -91,7 +93,7 @@ const useStyle = makeStyles((theme) => ({
   buttonAdd: {
     width: "90px",
     height: "50px",
-    margin: "15px",
+    margin: "15px !important",
     padding: "15px",
   },
 }));

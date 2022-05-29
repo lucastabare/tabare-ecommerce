@@ -38,9 +38,9 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
             {accounting.formatMoney(price, "$$")}
           </Typography>
         </CardContent>
-        <CardActions>
+        <CardActions className={classes.cardAtion}>
           <Button size="small" variant="contained" color="success">
-            Agregar Item
+            Description
           </Button>
         </CardActions>
         <ItemCount stock={5} initial={1} onAdd={onAdd} />
@@ -61,7 +61,16 @@ const useStyles = makeStyles((theme) => ({
     padding: "5px",
     margin: "10px",
   },
-  img: {},
+  img: {
+    maxHeight: "100%",
+    maxWidth: "100%",
+  },
+  cardAtion: {
+    alignItems: "center",
+    alignContent: "center",
+    justifyContent: "center",
+    textAlign: "center",
+  },
 }));
 
 export default Item;
