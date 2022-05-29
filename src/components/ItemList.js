@@ -7,10 +7,16 @@ const ItemList = ({ items }) => {
         items.map((item) => (
           <Item
             id={item.id}
-            title={item.name}
+            title={item.title}
             pictureUrl={item.image}
             price={item.price}
             stock={item.stock}
+
+            // id={item.seller.id}
+            // title={item.title}
+            // pictureUrl={item.thumbnail}
+            // price={item.price}
+            // stock={item.installments.quantity}
           />
         ))
       ) : (

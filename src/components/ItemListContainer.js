@@ -14,6 +14,10 @@ const ItemListContainer = ({ gretting }) => {
     promesaProducts(2000, products)
       .then((resolve) => setInfo(resolve))
       .then((reject) => console.log(reject));
+    // fetch("https://api.mercadolibre.com/sites/MLA/search?q=bebidas")
+    //   .then((res) => res.json())
+    //   .then((data) => setInfo(data.results))
+    //   .catch((err) => console.log(err));
   }, []);
 
   return (
