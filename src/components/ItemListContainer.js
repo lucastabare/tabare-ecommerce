@@ -27,7 +27,6 @@ const ItemListContainer = ({ gretting }) => {
       <div className={classes.container}>
         <ItemList items={info} />
       </div>
-      <ItemCount stock={5} initial={1} />
     </>
   );
 };

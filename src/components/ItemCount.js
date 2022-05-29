@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Button from "@material-ui/core/Button";
+import Button from "@mui/material/Button";
 import { makeStyles } from "@material-ui/styles";
 import Box from "@material-ui/core/Box";
 
@@ -26,22 +26,19 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <div className={classes.root}>
-      <div>
-        <h1>{contador}</h1>
-      </div>
-      <Box className={classes.boxButton}>
+    <>
+      <Box className={classes.root}>
         <Button
-          className="button"
-          size="large"
+          className={classes.button}
           variant="contained"
           color="error"
           onClick={disminuir}
         >
           -
         </Button>
+        <h3 className={classes.count}>{contador}</h3>
         <Button
-          size="large"
+          className={classes.button}
           variant="contained"
           color="success"
           onClick={aumentar}
@@ -49,14 +46,15 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           +
         </Button>
         <Button
+          className={classes.buttonAdd}
           variant="contained"
-          color="error"
+          color="secondary"
           onClick={() => onAdd(contador)}
         >
           Agregar Item
         </Button>
       </Box>
-    </div>
+    </>
   );
 };
 
@@ -64,15 +62,37 @@ const ItemCount = ({ stock, initial, onAdd }) => {
 const useStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
-    justifyContent: "center",
+    margin: "0 auto",
     alignItems: "center",
-    position: "relative",
+    padding: "0.5rem",
   },
-  boxButton: {
-    display: "flex",
+  count: {
+    backgroundColor: "#000",
+    borderRadius: "50%",
+    color: "#fff",
+    width: "30px",
+    height: "30px",
+    textAlign: "center",
+    alignContent: "center",
+    alignItems: "center",
     justifyContent: "center",
-    position: "absolute",
-    top: "100px",
+    margin: "5px",
+  },
+  button: {
+    width: "30px",
+    height: "30px",
+    justifyContent: "center",
+    textAlign: "center",
+    alignContent: "center",
+    alignItems: "center",
+    margin: "15px",
+    padding: "15px",
+  },
+  buttonAdd: {
+    width: "90px",
+    height: "50px",
+    margin: "15px",
+    padding: "15px",
   },
 }));
 export default ItemCount;

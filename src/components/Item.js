@@ -15,20 +15,11 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
   };
 
   return (
-    <Box
-      sx={{
-        display: "flex",
-        "& > :not(style)": {
-          m: 1,
-          width: 128,
-          height: 128,
-        },
-      }}
-    >
-      <Card sx={{ maxWidth: 345 }}>
+    <>
+      <Card sx={{ maxWidth: 350 }} className={classes.root}>
         <CardMedia
+          height="140"
           component="img"
-          sizes="(max-width: 345px) 100vw, 345px"
           image={pictureUrl}
           alt={title}
           className={classes.img}
@@ -52,17 +43,41 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
             Agregar Item
           </Button>
         </CardActions>
+        <ItemCount stock={5} initial={1} onAdd={onAdd} />
       </Card>
-      <ItemCount stock={5} initial={1} onAdd={onAdd} />
-    </Box>
+    </>
   );
 };
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
-  img: {
-    size: "cover",
+  root: {
+    maxWidth: 350,
+    textAlign: "center",
+    justifyContent: "center",
+    alignContent: "center",
+    alignItems: "center",
+    border: "1px solid #ccc",
+    borderRadius: "15px",
+    padding: "5px",
+    margin: "10px",
   },
+  img: {},
 }));
 
 export default Item;
+
+{
+  /* <div className="card" style="width: 18rem;">
+        <img src={pictureUrl} className="card-img-top" alt="..." />
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <p className="card-text">{id}</p>
+          <p className="card-text">STOCK: {stock}</p>
+          <p className="card-text">{accounting.formatMoney(price, " $$")}</p>
+          <a href="#" className="btn btn-primary">
+            Description
+          </a>
+        </div>
+        <ItemCount stock={5} initial={1} onAdd={onAdd} />
+      </div> */
+}
