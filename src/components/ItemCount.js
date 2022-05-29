@@ -3,7 +3,7 @@ import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/styles";
 import Box from "@material-ui/core/Box";
 
-const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
+const ItemCount = ({ stock, initial, onAdd }) => {
   const classes = useStyle();
   const [contador, setContador] = useState();
 
@@ -48,7 +48,11 @@ const ItemCount = ({ stock = 0, initial = 1, onAdd }) => {
         >
           +
         </Button>
-        <Button variant="contained" color="error">
+        <Button
+          variant="contained"
+          color="error"
+          onClick={() => onAdd(contador)}
+        >
           Agregar Item
         </Button>
       </Box>

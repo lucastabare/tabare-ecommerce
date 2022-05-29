@@ -6,9 +6,13 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import accounting from "accounting";
 import { Box, makeStyles } from "@material-ui/core";
+import ItemCount from "./ItemCount";
 
 const Item = ({ title, pictureUrl, price, id, stock }) => {
   const classes = useStyles();
+  const onAdd = (contador) => {
+    alert("Has agregado " + contador + "Items al carrito");
+  };
 
   return (
     <Box
@@ -49,6 +53,7 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
           </Button>
         </CardActions>
       </Card>
+      <ItemCount stock={5} initial={1} onAdd={onAdd} />
     </Box>
   );
 };
