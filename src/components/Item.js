@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import accounting from "accounting";
-import { Box, makeStyles } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core";
 import ItemCount from "./ItemCount";
 
 const Item = ({ title, pictureUrl, price, id, stock }) => {
@@ -16,7 +16,7 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
 
   return (
     <>
-      <Card sx={{ maxWidth: 350 }} className={classes.root}>
+      <Card sx={{ maxWidth: 300 }} className={classes.root}>
         <CardMedia
           height="160px"
           component="img"
@@ -63,7 +63,8 @@ const useStyles = makeStyles((theme) => ({
   },
   img: {
     // height: "fit-content",
-    maxHeight: "100%",
+    margin: "0 auto",
+    width: "auto"
   },
   cardAtion: {
     alignItems: "center",

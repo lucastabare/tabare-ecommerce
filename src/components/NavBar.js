@@ -1,6 +1,5 @@
 import React from "react";
 import Logo from "../assets/img/gaming-logo-cover.jpg";
-import "../assets/css/NavBar.css";
 import CartWidget from "./CartWidget";
 import { makeStyles } from "@material-ui/core/styles";
 
