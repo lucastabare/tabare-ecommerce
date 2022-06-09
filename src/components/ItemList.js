@@ -32,7 +32,8 @@ const useStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexWrap: "wrap",
-    width: "100%",
+    margin: "0 auto",
+    alignItems:"center"
   },
 }));
 export default ItemList;
