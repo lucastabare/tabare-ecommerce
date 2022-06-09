@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import accounting from "accounting";
 import { Box, makeStyles } from "@material-ui/core";
 import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
 
 const Item = ({ title, pictureUrl, price, id, stock }) => {
   const classes = useStyles();
@@ -39,9 +40,11 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
           </Typography>
         </CardContent>
         <CardActions className={classes.cardAtion}>
-          <Button size="small" variant="contained" color="success">
-            Description
-          </Button>
+          <Link to={`/item/${id}`}>
+            <Button size="small" variant="contained" color="success">
+              Description
+            </Button>
+          </Link>
         </CardActions>
         <ItemCount stock={5} initial={1} onAdd={onAdd} />
       </Card>

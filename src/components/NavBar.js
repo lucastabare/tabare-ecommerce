@@ -1,8 +1,8 @@
 import React from "react";
 import Logo from "../assets/img/gaming-logo-cover.jpg";
-import "../assets/css/NavBar.css";
 import CartWidget from "./CartWidget";
 import { makeStyles } from "@material-ui/core/styles";
+import SearchForm from "./SearchForm";
 
 function NavBar() {
   const classes = useStyle();
@@ -47,17 +47,7 @@ function NavBar() {
               </li>
             </ul>
             <CartWidget />
-            <form className="d-flex">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Buscar"
-                aria-label="Search"
-              />
-              <button className="btn btn-success" type="submit">
-                Buscar
-              </button>
-            </form>
+            <SearchForm />
           </div>
         </div>
       </nav>
