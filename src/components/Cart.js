@@ -1,7 +1,7 @@
 
 
 const Cart =() =>{
-    retrun(
+    return(
         <div>
             <h1>hola soy el cart</h1>
         </div>

@@ -19,6 +19,7 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
       <Card sx={{ maxWidth: 300 }} className={classes.root}>
         <CardMedia
           height="160px"
+          width="auto"
           component="img"
           image={pictureUrl}
           alt={title}
@@ -51,7 +52,7 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 350,
+    maxWidth: "350px",
     textAlign: "center",
     justifyContent: "center",
     alignContent: "center",
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   img: {
     // height: "fit-content",
     margin: "0 auto",
-    width: "auto"
+    width: "auto !important"
   },
   cardAtion: {
     alignItems: "center",
@@ -76,7 +77,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default Item;
 
-{
   /* <div className="card" style="width: 18rem;">
         <img src={pictureUrl} className="card-img-top" alt="..." />
         <div className="card-body">
@@ -90,4 +90,3 @@ export default Item;
         </div>
         <ItemCount stock={5} initial={1} onAdd={onAdd} />
       </div> */
-}

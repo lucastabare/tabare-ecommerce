@@ -4,7 +4,6 @@ import ItemCount from "./ItemCount";
 import ItemList from "./ItemList";
 import promesaProducts from "../Data/promesaProducts";
 import { makeStyles } from "@material-ui/core";
-import { display } from "@mui/system";
 
 const ItemListContainer = ({ gretting }) => {
   const classes = useStyle();
@@ -37,5 +36,6 @@ export default ItemListContainer;
 const useStyle = makeStyles((theme) => ({
   root: {
     display: "flex",
+    margin: "o auto"
   },
 }));
