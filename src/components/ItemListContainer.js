@@ -6,7 +6,7 @@ import products from "../Data/productos";
 import promesaProducts from "../Data/promesaProducts";
 import { useParams } from "react-router-dom";
 
-const ItemListContainer = ({ gretting }) => {
+const ItemListContainer = () => {
   const classes = useStyle();
   const [info, setInfo] = useState([]);
   const { id } = useParams();
@@ -14,19 +14,22 @@ const ItemListContainer = ({ gretting }) => {
   useEffect(() => {
     promesaProducts(
       2000,
-      products.filter((item) => item.categoryId !== parseInt(id))
+      products.filter((item) => {
+        if (id === undefined) return item;
+        return item.id === parseInt(id);
+      })
     )
       .then((resolve) => setInfo(resolve))
-      .then((reject) => console.log(reject));
+      .catch((reject) => console.log(reject));
+
     // fetch("https://api.mercadolibre.com/sites/MLA/search?q=bebidas")
     //   .then((res) => res.json())
     //   .then((data) => setInfo(data.results))
     //   .catch((err) => console.log(err));
-  }, []);
+  }, [info]);
 
   return (
     <>
-      <h2>{gretting}</h2>
       <div className={classes.root}>
         <ItemList items={info} />
       </div>
