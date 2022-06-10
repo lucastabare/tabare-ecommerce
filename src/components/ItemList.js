@@ -6,13 +6,14 @@ const ItemList = ({ items }) => {
   return (
     <div className={classes.root}>
       {items.length > 0 ? (
-        items.map((item) => (
+        items.map((item, key) => (
           <Item
             id={item.id}
             title={item.title}
             pictureUrl={item.image}
             price={item.price}
             stock={item.stock}
+            key={key}
 
             // id={item.seller.id}
             // title={item.title}
@@ -30,10 +31,14 @@ const ItemList = ({ items }) => {
 
 const useStyle = makeStyles((theme) => ({
   root: {
+    width: "80%",
     display: "flex",
     flexWrap: "wrap",
     margin: "0 auto",
-    alignItems:"center"
+    alignItems: "center",
+    alignContent: "center",
+    textAlign: "center",
+    justifyContent: "center",
   },
 }));
 export default ItemList;

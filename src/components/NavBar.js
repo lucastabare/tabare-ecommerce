@@ -1,8 +1,20 @@
-import React from "react";
-import Logo from "../assets/img/gaming-logo-cover.jpg";
+import {
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuGroup,
+  MenuItem,
+  MenuItemOption,
+  MenuList,
+  MenuOptionGroup,
+} from "@chakra-ui/react";
+
 import CartWidget from "./CartWidget";
-import { makeStyles } from "@material-ui/core/styles";
+import { Link } from "react-router-dom";
+import Logo from "../assets/img/gaming-logo-cover.jpg";
+import React from "react";
 import SearchForm from "./SearchForm";
+import { makeStyles } from "@material-ui/core/styles";
 
 function NavBar() {
   const classes = useStyle();
@@ -12,13 +24,15 @@ function NavBar() {
       <nav className="navbar navbar-expand-lg navbar-light  ">
         <div className="">
           <a className="navbar-brand" href="#">
-            <img
-              className={classes.logo}
-              src={Logo}
-              alt=""
-              width="130"
-              height="94"
-            />
+            <Link to="/">
+              <img
+                className={classes.logo}
+                src={Logo}
+                alt=""
+                width="130"
+                height="94"
+              />
+            </Link>
           </a>
         </div>
         <div className="container-fluid">
@@ -36,14 +50,18 @@ function NavBar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Productos
-                </a>
+                <Link to="/category/4" className={classes.btnlink}>
+                  <a className="nav-link active" aria-current="page">
+                    Sin alcohol
+                  </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
-                  Tienda
-                </a>
+                <Link to="/category/1" className={classes.btnlink}>
+                  <a className="nav-link active" aria-current="page">
+                    Con alcoholicas
+                  </a>
+                </Link>
               </li>
             </ul>
             <CartWidget />
@@ -59,7 +77,7 @@ function NavBar() {
 
 const useStyle = makeStyles((theme) => ({
   navigatorBar: {
-    backgroundColor: "#292966",
+    backgroundColor: "#fbdb6e",
     border: "solid white 2px",
     borderRadius: "5px",
     fontFamily: "Catamaran, sans-serif",
@@ -69,6 +87,9 @@ const useStyle = makeStyles((theme) => ({
   logo: {
     padding: "10px",
     borderRadius: "50%",
+  },
+  btnlink: {
+    textDecoration: "none",
   },
 }));
 

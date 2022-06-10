@@ -1,13 +1,13 @@
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
+import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import accounting from "accounting";
 import { makeStyles } from "@material-ui/core";
-import ItemCount from "./ItemCount";
-import { Link } from "react-router-dom";
 
 const Item = ({ title, pictureUrl, price, id, stock }) => {
   const classes = useStyles();
@@ -42,7 +42,7 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
         <CardActions className={classes.cardAtion}>
           <Link to={`/item/${id}`}>
             <Button size="small" variant="contained" color="success">
-              Description
+              Detalle
             </Button>
           </Link>
         </CardActions>
@@ -65,9 +65,8 @@ const useStyles = makeStyles((theme) => ({
     margin: "10px",
   },
   img: {
-    // height: "fit-content",
     margin: "0 auto",
-    width: "auto"
+    width: "auto !important",
   },
   cardAtion: {
     alignItems: "center",
