@@ -1,12 +1,16 @@
 import { Badge, makeStyles } from "@material-ui/core";
+
+import { CartContext } from "./CartContext";
 import ShoppingCartOutlined from "@material-ui/icons/ShoppingCartOutlined";
+import { useContext } from "react";
 
 const CartWidget = () => {
   const classes = useStyles();
+
   return (
     <div className={classes.root}>
       <Badge badgeContent={2} color="primary" className={classes.icon}>
-        <ShoppingCartOutlined />
+        <ShoppingCartOutlined className={classes.iconCarrito} />
       </Badge>
     </div>
   );
@@ -21,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     margin: theme.spacing(1),
     padding: theme.spacing(1),
+  },
+  iconCarrito: {
+    color: "#000",
+    fontSize: "2rem",
   },
 }));
 export default CartWidget;

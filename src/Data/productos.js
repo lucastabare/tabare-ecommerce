@@ -8,6 +8,7 @@ const products = [
       "https://media.f2h.shop/media/catalog/product/cache/ab45d104292f1bb63d093e6be8310c97/f/e/fernet_750_1.jpg",
     ],
     price: 900,
+    categoryId: 1,
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const products = [
       "https://ardiaprod.vteximg.com.br/arquivos/ids/201912-500-500/Cerveza-Amstel-Lager-Suave-lata-473-Ml-_1.jpg?v=637559912073200000",
     ],
     price: 250,
+    categoryId: 1,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const products = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAi7JaBgDIQfUOkFjJtCuUlFMFn67JGPSS3w&usqp=CAU",
     ],
     price: 200,
+    categoryId: 1,
   },
   {
     id: 4,
@@ -38,6 +41,7 @@ const products = [
       "https://jumboargentina.vtexassets.com/arquivos/ids/666408/Gaseosa-Fanta-Naranja-1-75-Lt-1-766720.jpg?v=637674142012600000",
     ],
     price: 250,
+    categoryId: 4,
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ const products = [
       "https://nissei.com/media/catalog/product/cache/16a9529cefd63504739dab4fc3414065/g/i/gin-beefeater-london-dry-gin-750ml_1.jpg",
     ],
     price: 2200,
+    categoryId: 1,
   },
   {
     id: 6,
@@ -58,6 +63,7 @@ const products = [
       "https://carrefourar.vtexassets.com/arquivos/ids/176635/7791250002267_01.jpg?v=637468573919330000",
     ],
     price: 1385,
+    categoryId: 1,
   },
   {
     id: 7,
@@ -68,6 +74,7 @@ const products = [
       "https://jumboargentina.vtexassets.com/arquivos/ids/666394-800-600?v=637674141780970000&width=800&height=600&aspect=true",
     ],
     price: 200,
+    categoryId: 4,
   },
   {
     id: 8,
@@ -78,6 +85,7 @@ const products = [
       "https://jumboargentina.vtexassets.com/arquivos/ids/666402-800-600?v=637674141915100000&width=800&height=600&aspect=true",
     ],
     price: 350,
+    categoryId: 4,
   },
 ];
 export default products;
