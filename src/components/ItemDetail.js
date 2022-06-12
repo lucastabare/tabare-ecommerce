@@ -1,10 +1,16 @@
+import { Button } from "@material-ui/core";
 import ItemCount from "./ItemCount";
+import { Link } from "react-router-dom";
 import accounting from "accounting";
 import { makeStyles } from "@material-ui/core/styles";
+import { useState } from "react";
 
 const ItemDetail = ({ item }) => {
+  const [itemCount, setItemCount] = useState(0);
+
   const onAdd = (contador) => {
     alert("Has agregado " + contador + "Items al carrito");
+    setItemCount(contador);
   };
   const classes = useStyles();
 
@@ -22,7 +28,15 @@ const ItemDetail = ({ item }) => {
             <p>Description: {item.description}</p>
             <p>Precio: {accounting.formatMoney(item.price, "$$")}</p>
             <p>Stock: {item.stock}</p>
-            <ItemCount stock={item.stock} initial={1} onAdd={onAdd} />
+            {itemCount === 0 ? (
+              <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
+            ) : (
+              <Link to="/cart" style={{ textDecoration: "none" }}>
+                <Button variant="contained" color="secondary">
+                  CheckOut
+                </Button>
+              </Link>
+            )}
           </div>
         </div>
       </div>

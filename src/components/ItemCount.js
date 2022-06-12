@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import Box from "@material-ui/core/Box";
 import Button from "@mui/material/Button";
 import { makeStyles } from "@material-ui/styles";
-import Box from "@material-ui/core/Box";
 
-const ItemCount = ({ stock, initial, onAdd }) => {
+const ItemCount = ({ stock, initial = 1, onAdd }) => {
   const classes = useStyle();
   const [contador, setContador] = useState();
 

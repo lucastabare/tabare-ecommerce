@@ -52,6 +52,7 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
   );
 };
 
+//ESTILOS
 const useStyles = makeStyles((theme) => ({
   root: {
     maxWidth: 350,

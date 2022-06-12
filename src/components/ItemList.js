@@ -1,3 +1,4 @@
+import CircularProgress from "@material-ui/core/CircularProgress";
 import Item from "./Item";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -23,7 +24,10 @@ const ItemList = ({ items }) => {
           />
         ))
       ) : (
-        <p>Cargando...</p>
+        <>
+          {/* <p>Cargando...</p> */}
+          <CircularProgress disableShrink className={classes.loading} />
+        </>
       )}
     </div>
   );
@@ -39,6 +43,13 @@ const useStyle = makeStyles((theme) => ({
     alignContent: "center",
     textAlign: "center",
     justifyContent: "center",
+  },
+  loading: {
+    margin: "0 auto",
+    justifyContent: "center",
+    alignItems: "center",
+    alignContent: "center",
+    textAlign: "center",
   },
 }));
 export default ItemList;
