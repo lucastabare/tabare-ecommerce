@@ -16,7 +16,7 @@ const ItemListContainer = () => {
       2000,
       products.filter((item) => {
         if (id === undefined) return item;
-        return item.id === parseInt(id);
+        return item.categoryId === parseInt(id);
       })
     )
       .then((resolve) => setInfo(resolve))

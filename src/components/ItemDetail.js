@@ -1,16 +1,21 @@
+import { useContext, useState } from "react";
+
 import { Button } from "@material-ui/core";
+import { CartContext } from "./CartContext";
 import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import accounting from "accounting";
 import { makeStyles } from "@material-ui/core/styles";
-import { useState } from "react";
 
 const ItemDetail = ({ item }) => {
   const [itemCount, setItemCount] = useState(0);
+  const cartShopping = useContext(CartContext);
 
   const onAdd = (contador) => {
     alert("Has agregado " + contador + "Items al carrito");
     setItemCount(contador);
+    //se agregar producto al carrito usando el contexto
+    cartShopping.addItem(item);
   };
   const classes = useStyles();
 

@@ -64,7 +64,9 @@ function NavBar() {
                 </Link>
               </li>
             </ul>
-            <CartWidget />
+            <Link to="/cart">
+              <CartWidget />
+            </Link>
             <SearchForm />
           </div>
         </div>
