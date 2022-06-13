@@ -17,37 +17,35 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
 
   return (
     <>
-      <Card sx={{ maxWidth: 300 }} className={classes.root}>
-        <CardMedia
-          height="160px"
-          component="img"
-          image={pictureUrl}
-          alt={title}
-          className={classes.img}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {id}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            STOCK:{stock}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {accounting.formatMoney(price, "$$")}
-          </Typography>
-        </CardContent>
-        <CardActions className={classes.cardAtion}>
-          <Link to={`/item/${id}`}>
-            <Button size="small" variant="contained" color="success">
-              Detalle
-            </Button>
-          </Link>
-        </CardActions>
-        <ItemCount stock={5} initial={1} onAdd={onAdd} />
-      </Card>
+      <Link to={`/item/${id}`} style={{ textDecoration: "none" }}>
+        <Button size="small" variant="contained">
+          <Card className={classes.root}>
+            <CardMedia
+              height="160px"
+              component="img"
+              image={pictureUrl}
+              alt={title}
+              className={classes.img}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {id}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                STOCK:{stock}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {accounting.formatMoney(price, "$$")}
+              </Typography>
+            </CardContent>
+            <CardActions className={classes.cardAtion}></CardActions>
+            {/* <ItemCount stock={5} initial={1} onAdd={onAdd} /> */}
+          </Card>
+        </Button>
+      </Link>
     </>
   );
 };
@@ -55,15 +53,14 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
 //ESTILOS
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 350,
+    width: "350px",
     textAlign: "center",
     justifyContent: "center",
     alignContent: "center",
     alignItems: "center",
     border: "1px solid #ccc",
     borderRadius: "15px",
-    padding: "5px",
-    margin: "10px",
+    padding: "20px",
   },
   img: {
     margin: "0 auto",

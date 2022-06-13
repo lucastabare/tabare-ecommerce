@@ -28,6 +28,21 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
 
   return (
     <>
+      {/* <div
+        className="btn-group"
+        role="group"
+        aria-label="Basic mixed styles example"
+        onClick={disminuir}
+      >
+        <button type="button" className="btn btn-danger">
+          -
+        </button>
+        <input type="number" aria-label={contador} />
+
+        <button type="button" className="btn btn-success" onClick={aumentar}>
+          +
+        </button>
+      </div> */}
       <Box className={classes.root}>
         <Button
           className={classes.button}

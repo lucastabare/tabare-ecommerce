@@ -80,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
     height: "300px",
   },
   img: {
-    width: "50%",
+    width: "40%",
     justifyContent: "left",
     "& img": {
       width: "50%",
