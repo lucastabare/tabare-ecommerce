@@ -7,6 +7,7 @@ const Cart = () => {
   const classes = useStyles();
   const cartShopping = useContext(CartContext);
   const [cartList, setCartList] = useState([]);
+
   const deteleCarrito = () => {
     cartShopping.clear();
   };
@@ -27,8 +28,98 @@ const Cart = () => {
       {cartShopping.cartList.length === 0 ? (
         <p>TU CARRITO ESTA VACIO</p>
       ) : (
-        cartShopping.cartList.map((item) => <p>{item.name}</p>)
+        cartShopping.cartList.map((item) => (
+          <table>
+            <thead>
+              <th scope="col">#</th>
+              <th scope="col">Item</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Precio</th>
+              <th scope="col">Opciones</th>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">{item.id}</th>
+                <td>{item.name}</td>
+                <td>{item.quantity}</td>
+                <td>{item.price}</td>
+                <td>
+                  <button type="button" className="btn btn-danger">
+                    <i className="fa-solid fa-trash-can"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        ))
       )}
+      {/*ACTIVA MODAL CUANDO PASE EL DESAFIO
+       <div
+        className="modal"
+        id="checkout"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="tittleCkeckOut"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog" role="document">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h5 id="tittleCkeckOut">Mi Carrito</h5>
+              <button className="close" data-dismis="modal" aria-label="cerrar">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div className="modal-body">
+              <div className="alert alert-succes">
+                <table className="table table-dark table-hover">
+                  <thead>
+                    <th scope="col">#</th>
+                    <th scope="col">Item</th>
+                    <th scope="col">Cantidad</th>
+                    <th scope="col">Precio</th>
+                    <th scope="col">Opciones</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td scope="row">
+                        <img
+                          width="50px"
+                          src="https://bluemonk.com.ar/95-thickbox_default/fernet-branca-750cc.jpg"
+                          alt="imgItem"
+                        />
+                      </td>
+                      <td scope="row">Fernet</td>
+                      <td scope="row">2</td>
+                      <td scope="row">$5000</td>
+                      <td scope="row">
+                        <button type="button" className="btn btn-danger">
+                          <i className="fa-solid fa-trash-can"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div className="modal-footer">
+              <h4>Total: $5000</h4>
+            </div>
+            <div className="modal-footer">
+              <button
+                className="btn btn-warning"
+                type="button"
+                data-dismis="modal"
+              >
+                Cerrar
+              </button>
+              <button className="btn btn-success" type="button">
+                Finalizar Compra
+              </button>
+            </div>
+          </div>
+        </div>
+      </div> */}
     </div>
   );
 };

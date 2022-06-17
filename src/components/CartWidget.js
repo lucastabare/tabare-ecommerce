@@ -10,7 +10,10 @@ const CartWidget = () => {
   return (
     <div className={classes.root}>
       <Badge badgeContent={2} color="primary" className={classes.icon}>
-        <ShoppingCartOutlined className={classes.iconCarrito} />
+        <ShoppingCartOutlined
+          tittle="Ver compras"
+          className={classes.iconCarrito}
+        />
       </Badge>
     </div>
   );

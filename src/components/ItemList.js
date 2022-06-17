@@ -35,10 +35,10 @@ const ItemList = ({ items }) => {
 
 const useStyle = makeStyles((theme) => ({
   root: {
-    width: "80%",
     display: "flex",
     flexWrap: "wrap",
     margin: "0 auto",
+    marginTop: "20px",
     alignItems: "center",
     alignContent: "center",
     textAlign: "center",

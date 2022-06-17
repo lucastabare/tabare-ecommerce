@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import Banner from "./Banner";
 import ItemList from "./ItemList";
 import { makeStyles } from "@material-ui/core";
 import products from "../Data/productos";
@@ -31,7 +32,10 @@ const ItemListContainer = () => {
   return (
     <>
       <div className={classes.root}>
-        <ItemList items={info} />
+        <div className="container">
+          <Banner />
+          <ItemList items={info} />
+        </div>
       </div>
     </>
   );

@@ -1,83 +1,109 @@
-import {
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuGroup,
-  MenuItem,
-  MenuItemOption,
-  MenuList,
-  MenuOptionGroup,
-} from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 
 import CartWidget from "./CartWidget";
+import Categorias from "./Categorias";
 import { Link } from "react-router-dom";
-import Logo from "../assets/img/gaming-logo-cover.jpg";
+import Logo from "../assets/img/descarga.png";
 import React from "react";
 import SearchForm from "./SearchForm";
+import Users from "./Users";
 import { makeStyles } from "@material-ui/core/styles";
 
 function NavBar() {
+  const [mobile, setMobile] = useState(false);
+
   const classes = useStyle();
 
-  return (
-    <div className={classes.navigatorBar}>
-      <nav className="navbar navbar-expand-lg navbar-light  ">
-        <div className="">
-          <a className="navbar-brand" href="#">
-            <Link to="/">
-              <img
-                className={classes.logo}
-                src={Logo}
-                alt=""
-                width="130"
-                height="94"
-              />
-            </Link>
-          </a>
+  useEffect(() => {
+    const resposibe = () =>
+      window.innerWidth < 1000 ? setMobile(true) : setMobile(false);
+    resposibe();
+    window.addEventListener("resize", () => resposibe());
+  }, []);
+
+  //ESTILOS DISPLAY-MOBILE:
+  const displayMobile = () => {
+    return (
+      <div className={classes.navigatorBar}>
+        <div className="container">
+          <nav className="navbar navbar-expand-lg navbar-light  ">
+            <div className="">
+              <a className="navbar-brand" href="#">
+                <Link to="/">
+                  <img
+                    className={classes.logo}
+                    src={Logo}
+                    alt=""
+                    width="130"
+                    height="94"
+                  />
+                </Link>
+              </a>
+            </div>
+            <div className={classes.categoriasMobile}>
+              <Categorias />
+            </div>
+            <div className="container-fluid justify-content-start">
+              <Link to="/login">
+                <Users />
+              </Link>
+              <Link to="/cart">
+                <CartWidget />
+              </Link>
+              <SearchForm />
+            </div>
+          </nav>
         </div>
-        <div className="container-fluid">
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <Link to="/category/4" className={classes.btnlink}>
-                  <a className="nav-link active" aria-current="page">
-                    Sin alcohol
-                  </a>
+      </div>
+    );
+  };
+
+  //ESTILOS DISPLAR-DESKTOP:
+  const displayDesktop = () => {
+    return (
+      <>
+        <div className={classes.navigatorBar}>
+          <div className="container">
+            <nav className="navbar navbar-expand-lg navbar-light  ">
+              <div className="">
+                <a className="navbar-brand" href="#">
+                  <Link to="/">
+                    <img
+                      className={classes.logo}
+                      src={Logo}
+                      alt=""
+                      width="130"
+                      height="94"
+                    />
+                  </Link>
+                </a>
+              </div>
+              <div className="container-fluid justify-content-end">
+                <SearchForm />
+                <Link to="/login">
+                  <Users />
                 </Link>
-              </li>
-              <li className="nav-item">
-                <Link to="/category/1" className={classes.btnlink}>
-                  <a className="nav-link active" aria-current="page">
-                    Con alcoholicas
-                  </a>
+                <Link to="/cart">
+                  <CartWidget />
                 </Link>
-              </li>
-            </ul>
-            <Link to="/cart">
-              <CartWidget />
-            </Link>
-            <SearchForm />
+              </div>
+            </nav>
           </div>
         </div>
-      </nav>
-    </div>
-  );
+        <div className="container">
+          <Categorias />
+        </div>
+      </>
+    );
+  };
+
+  //RETORNO DE VISTA SEGUN TIPO DE PANTALLA:
+  return <div>{mobile ? displayMobile() : displayDesktop()}</div>;
 }
 
-//Estilos
-
+//ESTILOS:
 const useStyle = makeStyles((theme) => ({
+  //ESTILOS GENERALES:
   navigatorBar: {
     backgroundColor: "#fbdb6e",
     border: "solid white 2px",
@@ -85,13 +111,19 @@ const useStyle = makeStyles((theme) => ({
     fontFamily: "Catamaran, sans-serif",
     fontSize: "25px",
     color: "#fafafa !important",
+    "& .container-fluid": {
+      margin: "10px",
+    },
   },
   logo: {
     padding: "10px",
-    borderRadius: "50%",
+    borderRadius: "20%",
   },
-  btnlink: {
-    textDecoration: "none",
+  //ESTILOS DISPLAY-MOBILE:
+  categoriasMobile: {
+    textAlign: "left",
+    alignItems: "center",
+    justifyContent: "center",
   },
 }));
 

@@ -63,8 +63,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     border: "1px solid #ccc",
     borderRadius: "15px",
-    padding: "5px",
-    margin: "10px",
+    padding: "20px",
   },
   img: {
     margin: "0 auto",
@@ -80,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default Item;
 
-  /* <div className="card" style="width: 18rem;">
+/* <div className="card" style="width: 18rem;">
         <img src={pictureUrl} className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">{title}</h5>
