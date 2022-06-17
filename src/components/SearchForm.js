@@ -20,6 +20,7 @@ const SearchForm = () => {
           variant="contained"
           fontSize="large"
           viewBox="0 0 24 24"
+          title="Buscar"
         >
           Buscar
         </SearchIcon>

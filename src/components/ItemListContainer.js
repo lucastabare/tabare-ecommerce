@@ -32,8 +32,10 @@ const ItemListContainer = () => {
   return (
     <>
       <div className={classes.root}>
-        <Banner />
-        <ItemList items={info} />
+        <div className="container">
+          <Banner />
+          <ItemList items={info} />
+        </div>
       </div>
     </>
   );
