@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 
 import { CartContext } from "./CartContext";
+import Resumen from "./Resumen";
 import { makeStyles } from "@material-ui/core";
 
 const Cart = () => {
@@ -29,28 +30,31 @@ const Cart = () => {
         <p>TU CARRITO ESTA VACIO</p>
       ) : (
         cartShopping.cartList.map((item) => (
-          <table>
-            <thead>
-              <th scope="col">#</th>
-              <th scope="col">Item</th>
-              <th scope="col">Cantidad</th>
-              <th scope="col">Precio</th>
-              <th scope="col">Opciones</th>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row">{item.id}</th>
-                <td>{item.name}</td>
-                <td>{item.quantity}</td>
-                <td>{item.price}</td>
-                <td>
-                  <button type="button" className="btn btn-danger">
-                    <i className="fa-solid fa-trash-can"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+          <>
+            <table>
+              <thead>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Precio</th>
+                <th scope="col">Opciones</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">{item.id}</th>
+                  <td>{item.name}</td>
+                  <td>{item.quantity}</td>
+                  <td>{item.price}</td>
+                  <td>
+                    <button type="button" className="btn btn-danger">
+                      <i className="fa-solid fa-trash-can"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <Resumen />
+          </>
         ))
       )}
       {/*ACTIVA MODAL CUANDO PASE EL DESAFIO

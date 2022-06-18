@@ -67,7 +67,7 @@ const ItemCount = ({ stock, initial = 1, onAdd }) => {
           color="secondary"
           onClick={() => onAdd(contador)}
         >
-          Agregar Item
+          Agregar
         </Button>
       </Box>
     </>

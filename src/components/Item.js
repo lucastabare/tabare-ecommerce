@@ -1,9 +1,9 @@
+import { Button as Bonton } from "@chakra-ui/react";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import ItemCount from "./ItemCount";
 import { Link } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import accounting from "accounting";
@@ -15,40 +15,44 @@ const Item = ({ title, pictureUrl, price, id, stock }) => {
     alert("Has agregado " + contador + "Items al carrito");
   };
 
+  const agregarCart = () => {
+    onAdd(1);
+  };
+
   return (
     <>
-      <Card sx={{ maxWidth: 300 }} className={classes.root}>
-        <CardMedia
-          height="160px"
-          width="auto"
-          component="img"
-          image={pictureUrl}
-          alt={title}
-          className={classes.img}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
-            {title}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {id}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            STOCK:{stock}
-          </Typography>
-          <Typography variant="body2" color="text.secondary">
-            {accounting.formatMoney(price, "$$")}
-          </Typography>
-        </CardContent>
-        <CardActions className={classes.cardAtion}>
-          <Link to={`/item/${id}`}>
-            <Button size="small" variant="contained" color="success">
-              Detalle
-            </Button>
-          </Link>
-        </CardActions>
-        <ItemCount stock={5} initial={1} onAdd={onAdd} />
-      </Card>
+      <Link to={`/item/${id}`} className={classes.link}>
+        <Button size="small">
+          <Card sx={{ maxWidth: 300 }} className={classes.root}>
+            <CardMedia
+              height="160px"
+              width="auto"
+              component="img"
+              image={pictureUrl}
+              alt={title}
+              className={classes.img}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {title}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {id}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                STOCK:{stock}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {accounting.formatMoney(price, "$$")}
+              </Typography>
+            </CardContent>
+            <CardActions className={classes.cardAtion}></CardActions>
+            <Bonton colorScheme="linkedin" onClick={() => agregarCart()}>
+              Agregar
+            </Bonton>
+          </Card>
+        </Button>
+      </Link>
     </>
   );
 };
@@ -74,6 +78,9 @@ const useStyles = makeStyles((theme) => ({
     alignContent: "center",
     justifyContent: "center",
     textAlign: "center",
+  },
+  link: {
+    textDecoration: "none",
   },
 }));
 

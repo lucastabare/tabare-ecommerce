@@ -1,40 +1,54 @@
+import { collection, getDocs } from "firebase/firestore";
 import { useEffect, useState } from "react";
 
 import Banner from "./Banner";
 import ItemList from "./ItemList";
+import db from "../Data/firebaseConfig.js";
+import { firestoreFetch } from "../Data/firestoreFetch";
 import { makeStyles } from "@material-ui/core";
-import products from "../Data/productos";
-import promesaProducts from "../Data/promesaProducts";
 import { useParams } from "react-router-dom";
+
+// import products from "../Data/productos";
+// import promesaProducts from "../Data/promesaProducts";
 
 const ItemListContainer = () => {
   const classes = useStyle();
-  const [info, setInfo] = useState([]);
-  const { id } = useParams();
+  const [datos, setDatos] = useState([]);
+  const { idCategory } = useParams();
 
   useEffect(() => {
-    promesaProducts(
-      2000,
-      products.filter((item) => {
-        if (id === undefined) return item;
-        return item.categoryId === parseInt(id);
-      })
-    )
-      .then((resolve) => setInfo(resolve))
-      .catch((reject) => console.log(reject));
+    firestoreFetch(idCategory)
+      .then((result) => setDatos(result))
 
-    // fetch("https://api.mercadolibre.com/sites/MLA/search?q=bebidas")
-    //   .then((res) => res.json())
-    //   .then((data) => setInfo(data.results))
-    //   .catch((err) => console.log(err));
-  }, [info]);
+      .catch((err) => console.log(err));
+  }, [idCategory]);
+
+  //DATOS DE PRODUCTOS DESDE UN ARCHIVO JSON LOCAL:
+  // const [info, setInfo] = useState([]);
+  // const { idCategory } = useParams();
+  // useEffect(() => {
+  //   promesaProducts(
+  //     2000,
+  //     products.filter((item) => {
+  //       if (id === undefined) return item;
+  //       return item.categoryId === parseInt(id);
+  //     })
+  //   )
+  //     .then((resolve) => setInfo(resolve))
+  //     .catch((reject) => console.log(reject));
+
+  // fetch("https://api.mercadolibre.com/sites/MLA/search?q=bebidas")
+  //   .then((res) => res.json())
+  //   .then((data) => setInfo(data.results))
+  //   .catch((err) => console.log(err));
+  // }, [info]);
 
   return (
     <>
       <div className={classes.root}>
         <div className="container">
           <Banner />
-          <ItemList items={info} />
+          <ItemList items={datos} />
         </div>
       </div>
     </>

@@ -6,10 +6,15 @@ import { useContext } from "react";
 
 const CartWidget = () => {
   const classes = useStyles();
+  const test = useContext(CartContext);
 
   return (
     <div className={classes.root}>
-      <Badge badgeContent={2} color="primary" className={classes.icon}>
+      <Badge
+        badgeContent={test.calcItemsQty()}
+        color="primary"
+        className={classes.icon}
+      >
         <ShoppingCartOutlined
           tittle="Ver compras"
           className={classes.iconCarrito}
