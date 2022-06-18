@@ -1,3 +1,9 @@
+import {
+  collection,
+  increment,
+  serverTimestamp,
+  updateDoc,
+} from "firebase/firestore";
 import { useContext, useState } from "react";
 
 import { CartContext } from "./CartContext";
@@ -16,6 +22,38 @@ const Cart = () => {
   const deleteItem = () => {
     let result = cartList.filter((item) => item.id !== id);
     setCartList(result);
+  };
+
+  const createOrder = () => {
+    const itemsForDB = test.carlist.map((item) => ({
+      id: item.idItem,
+      tittle: item.nameItem,
+      price: item.costItem,
+    }));
+
+    test.carlist.forEach(async (item) => {
+      const itemRf = doc(db, "products", item.idItem);
+      await updateDoc(itemRef, {
+        stock: increment(-item.qtyItem),
+      });
+    });
+
+    let order = {
+      buyer: {
+        name: "Juan Perez",
+        email: "juan@gmail.com",
+        phone: "123456789",
+      },
+      total: test.calcTotal(),
+      items: itemsForDB,
+      data: serverTimestamp(),
+    };
+  };
+
+  const createOrderInFirestore = async () => {
+    const newOrderRef = doc(collection(db, "orders"));
+    await setDoc(newOrderRef, order);
+    return newOrderRef;
   };
 
   return (
@@ -41,10 +79,10 @@ const Cart = () => {
               </thead>
               <tbody>
                 <tr>
-                  <th scope="row">{item.id}</th>
-                  <td>{item.name}</td>
-                  <td>{item.quantity}</td>
-                  <td>{item.price}</td>
+                  <th scope="row">{item.idItem}</th>
+                  <td>{item.nameItem}</td>
+                  <td>{item.qtyItem}</td>
+                  <td>{item.costItem}</td>
                   <td>
                     <button type="button" className="btn btn-danger">
                       <i className="fa-solid fa-trash-can"></i>

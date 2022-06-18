@@ -9,32 +9,35 @@ import Typography from "@mui/material/Typography";
 import accounting from "accounting";
 import { makeStyles } from "@material-ui/core";
 
-const Item = ({ title, pictureUrl, price, id, stock }) => {
+const Item = ({ tittle, pictureUrl, price, id, stock }) => {
   const classes = useStyles();
   const onAdd = (contador) => {
     alert("Has agregado " + contador + "Items al carrito");
   };
 
-  const agregarCart = () => {
-    onAdd(1);
+  const agregarCart = ({ item }) => {
+    onAdd(item);
   };
 
   return (
     <>
       <Link to={`/item/${id}`} className={classes.link}>
         <Button size="small">
-          <Card sx={{ maxWidth: 300 }} className={classes.root}>
+          <Card
+            sx={{ maxWidth: 300, width: 200, height: 380 }}
+            className={classes.root}
+          >
             <CardMedia
               height="160px"
               width="auto"
               component="img"
               image={pictureUrl}
-              alt={title}
+              alt={tittle}
               className={classes.img}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {title}
+                {tittle}
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 {id}

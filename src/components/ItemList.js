@@ -9,8 +9,7 @@ const ItemList = ({ items }) => {
       {items.length > 0 ? (
         items.map((item, key) => (
           <Item
-            id={item.id}
-            title={item.title}
+            tittle={item.name}
             pictureUrl={item.image}
             price={item.price}
             stock={item.stock}

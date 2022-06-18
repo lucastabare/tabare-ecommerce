@@ -19,9 +19,9 @@ const ItemListContainer = () => {
   useEffect(() => {
     firestoreFetch(idCategory)
       .then((result) => setDatos(result))
-
       .catch((err) => console.log(err));
   }, [idCategory]);
+  console.log(idCategory);
 
   //DATOS DE PRODUCTOS DESDE UN ARCHIVO JSON LOCAL:
   // const [info, setInfo] = useState([]);

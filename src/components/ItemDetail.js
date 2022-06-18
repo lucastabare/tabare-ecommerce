@@ -15,36 +15,44 @@ const ItemDetail = ({ item }) => {
     alert("Has agregado " + contador + "Items al carrito");
     setItemCount(contador);
     //se agregar producto al carrito usando el contexto
-    cartShopping.addItem(item);
+    cartShopping.addItem(item, contador);
   };
   const classes = useStyles();
 
   return (
     <>
-      <div className={classes.root}>
-        <div className={classes.tittle}>
-          <h2>Producto: {item.name}</h2>
-        </div>
-        <div className={classes.contenedor}>
-          <div className={classes.img}>
-            <img src={item.image} />
+      {item && item.image ? (
+        <div className={classes.root}>
+          <div className={classes.tittle}>
+            <h2>Producto: {item.name}</h2>
           </div>
-          <div className={classes.description}>
-            <p>Description: {item.description}</p>
-            <p>Precio: {accounting.formatMoney(item.price, "$$")}</p>
-            <p>Stock: {item.stock}</p>
-            {itemCount === 0 ? (
-              <ItemCount stock={item.stock} initial={itemCount} onAdd={onAdd} />
-            ) : (
-              <Link to="/cart" style={{ textDecoration: "none" }}>
-                <Button variant="contained" color="secondary">
-                  CheckOut
-                </Button>
-              </Link>
-            )}
+          <div className={classes.contenedor}>
+            <div className={classes.img}>
+              <img src={item.image} />
+            </div>
+            <div className={classes.description}>
+              <p>Description: {item.description}</p>
+              <p>Precio: {accounting.formatMoney(item.price, "$$")}</p>
+              <p>Stock: {item.stock}</p>
+              {itemCount === 0 ? (
+                <ItemCount
+                  stock={item.stock}
+                  initial={itemCount}
+                  onAdd={onAdd}
+                />
+              ) : (
+                <Link to="/cart" style={{ textDecoration: "none" }}>
+                  <Button variant="contained" color="secondary">
+                    CheckOut
+                  </Button>
+                </Link>
+              )}
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div>No hay producto</div>
+      )}
     </>
   );
 };

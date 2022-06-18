@@ -8,6 +8,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import ItemListContainer from "./components/ItemListContainer";
 import NavBar from "./components/NavBar";
 import { makeStyles } from "@material-ui/core/styles";
+
 // eslint-disable-next-line
 function App() {
   const classes = useStyle();
@@ -19,7 +20,7 @@ function App() {
           <Routes>
             <Route path="/" element={<ItemListContainer />} />
             <Route path="category/:id" element={<ItemListContainer />} />
-            <Route path="/item/:id" element={<ItemDetailContainer />} />
+            <Route path="/item/:idItem" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </BrowserRouter>

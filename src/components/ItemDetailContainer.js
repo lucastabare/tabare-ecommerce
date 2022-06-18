@@ -1,26 +1,24 @@
 import { useEffect, useState } from "react";
 
 import ItemDetail from "./ItemDetail";
+import { firestoreFetchOne } from "../Data/firestoreFetch";
 import products from "../Data/productos";
 import promesaProducts from "../Data/promesaProducts";
 import { useParams } from "react-router-dom";
 
 const ItemDetailContainer = ({}) => {
-  const [item, setItem] = useState({});
-  const { id } = useParams();
+  const [dato, setDato] = useState({});
+  const { idItem } = useParams();
 
   useEffect(() => {
-    promesaProducts(
-      2000,
-      products.find((item) => item.id === parseInt(id))
-    )
-      .then((resolve) => setItem(resolve))
-      .catch((reject) => console.log(reject));
+    firestoreFetchOne(idItem)
+      .then((result) => setDato(result))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <div>
-      <ItemDetail item={item} />
+      <ItemDetail item={dato} />
     </div>
   );
 };
