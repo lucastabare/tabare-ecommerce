@@ -35,25 +35,19 @@ const Categorias = () => {
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
                   <Link
-                    to="/categoria/cervezas/quilmes"
+                    to="/category/categoryName/quilmes"
                     className="dropdown-item"
                   >
                     Quilmes
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/cervezas/brahma"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/brahma" className="dropdown-item">
                     Brahma
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/cervezas/artezanal"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/artezanal" className="dropdown-item">
                     Artezanal
                   </Link>
                 </li>
@@ -61,7 +55,10 @@ const Categorias = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link to="/categoria/todas" className="dropdown-item">
+                  <Link
+                    to="/categoryProduct/cervezas"
+                    className="dropdown-item"
+                  >
                     Todas
                   </Link>
                 </li>
@@ -81,23 +78,17 @@ const Categorias = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <Link to="/categoria/vinos/malbec" className="dropdown-item">
+                  <Link to="/categoryName/malbec" className="dropdown-item">
                     Malbec
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/vinos/cabernet"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/cabernet" className="dropdown-item">
                     Cabernet
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/vinos/frutales"
-                    className="dropdown-item"
-                  >
+                  <Link to="categoryName/frutales" className="dropdown-item">
                     Frutales
                   </Link>
                 </li>
@@ -106,7 +97,7 @@ const Categorias = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link to="/categoria/vinos/todos" className="dropdown-item">
+                  <Link to="/categoryProduct/vinos" className="dropdown-item">
                     todos
                   </Link>
                 </li>
@@ -126,26 +117,17 @@ const Categorias = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <Link
-                    to="/categoria/destilados/gin"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/gin" className="dropdown-item">
                     Gin
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/destilados/vodka"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/vodka" className="dropdown-item">
                     Vodka
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/destilados/Ron"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/Ron" className="dropdown-item">
                     Ron
                   </Link>
                 </li>
@@ -153,10 +135,7 @@ const Categorias = () => {
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/destilados/todos"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryProduct/todos" className="dropdown-item">
                     Todos
                   </Link>
                 </li>
@@ -176,26 +155,17 @@ const Categorias = () => {
               </a>
               <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li>
-                  <Link
-                    to="/categoria/sinalcohol/gaseosa"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/gaseosa" className="dropdown-item">
                     Gaseosas
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/sinalcohol/jugos"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/jugos" className="dropdown-item">
                     Jugos
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    to="/categoria/sinalcohol/aguas"
-                    className="dropdown-item"
-                  >
+                  <Link to="/categoryName/aguas" className="dropdown-item">
                     Aguas
                   </Link>
                 </li>
@@ -204,7 +174,7 @@ const Categorias = () => {
                 </li>
                 <li>
                   <Link
-                    to="/categoria/sinalcohol/todos"
+                    to="/categoryProduct/sin alcohol"
                     className="dropdown-item"
                   >
                     Todos

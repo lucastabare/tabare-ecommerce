@@ -13,8 +13,8 @@ const ItemList = ({ items }) => {
             pictureUrl={item.image}
             price={item.price}
             stock={item.stock}
-            key={key}
-
+            key={key.id}
+            id={item.id}
             // id={item.seller.id}
             // title={item.title}
             // pictureUrl={item.thumbnail}

@@ -39,9 +39,9 @@ const Item = ({ tittle, pictureUrl, price, id, stock }) => {
               <Typography gutterBottom variant="h5" component="div">
                 {tittle}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
+              {/* <Typography variant="body2" color="text.secondary">
                 {id}
-              </Typography>
+              </Typography> */}
               <Typography variant="body2" color="text.secondary">
                 STOCK:{stock}
               </Typography>
